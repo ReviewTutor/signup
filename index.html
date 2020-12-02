@@ -146,6 +146,8 @@
             font-size: 30px;
             font-family: 'Balsamiq Sans';
             padding: 15px;
+            text-align: center;
+            width: 75%;
         }
 
         h4 {
@@ -1143,9 +1145,8 @@
         #success-msg {
             color: white;
             font-family: 'Roboto Slab', serif;
-            margin-right: 16%;
             font-size: 40px;
-            text-align: left;
+            text-align:center;
             display: none;
             margin-top: 40px;
         }
@@ -2461,70 +2462,61 @@
     <br>
     <div class="submissions">
         <center>
-            <h2>Stuck on something? Sign up for a free session with our tutoring team! </h2>
-            <form id="form" target="_self" onsubmit="return postToGoogle();" action="" autocomplete="off">
-                <input id="nameField" class="signup" name="entry.642962540" type="text" placeholder="Name" required>
-                <br>
-                <input id="emailField" class="signup email" name="entry.50253303" type="email" placeholder="Email"
-                    required><br>
-                <input id="titleField" class="signup" name="entry.50384046" type="text" placeholder="Grade" required>
-                <br>
-                <textarea id="question" class="signup" name="entry.106177932" required rows="10" cols="50"
-                    placeholder="Questions/Topics that you are confused on"></textarea>
-                <br>
-                <button id="send" type="submit" class="common_btn">Submit</button>
-                <br>
-                <br>
-            </form>
 
-            <h3 id="success-msg" style="text-align: center !important; margin-top:15px !important; display:none; ">
-                Thank You!</h3>
-            <script>
-                function postToGoogle() {
-                    var field1 = $("#nameField").val();
-                    var field2 = $("#emailField").val();
-                    var field3 = $("#titleField").val();
-                    var field4 = $("#question").val();
-
-                    if (field1 == "") {
-                        alert('Please Fill Your Name');
-                        document.getElementById("nameField").focus();
-                        return false;
-                    }
-                    if (field2 == "") {
-                        alert('Please Fill Your Email');
-                        document.getElementById("emailField").focus();
-                        return false;
-                    }
-                    if (field3 == "") {
-                        alert('Please Enter a Title for Your Quiz');
-                        document.getElementById("titleField").focus();
-                        return false;
-                    }
-                    if (field4 == "") {
-                        alert('Submit Your Questions');
-                        document.getElementById("question").focus();
-                        return false;
-                    }
-
-
-
-                    $.ajax({
-                        url: "https://docs.google.com/forms/d/e/1FAIpQLSfRNl4olqXAkeT6WPq4LZBfvigaKEjpZXuf_XBmOxtYtKCX_g/formResponse?",
-                        data: { "entry.642962540": field1, "entry.50253303": field2, "entry.50384046": field3, "entry.106177932": field4 },
-                        type: "POST",
-                        dataType: "xml",
-                        success: function (d) {
-                        },
-                        error: function (x, y, z) {
-
-                            $('#success-msg').show();
-                            $('#form').hide();
-
+        <form id="form" target="_self" onsubmit="return postToGoogle();" action="" autocomplete="off"> 
+            <h2 class="form">Stuck on something? Sign up for a free session with our tutoring team! </h2>
+            <input id="nameField" class="signup" name="entry.213465586" placeholder="Enter your name" type="text" required> 
+            <input id="emailField" class="signup email"  name="entry.937858181" placeholder="Enter your email" type="email" required><br><br>
+            <textarea id="question" class="signup" name="entry.1009381555" placeholder="Questions/Topics that you are confused on" required rows="10" cols="50"></textarea> 
+            <br>
+            <button id="send" type="submit" class="common_btn">Submit</button>
+        </form>
+        <br>
+        <h3 id="success-msg" style="text-align: center !important; margin-top:20px !important; display:none; "> 
+            Someone on our tutoring team will get in touch with you shortly.</h3>
+            <br>
+        <script>
+            function postToGoogle() {
+                            var field1 = $("#nameField").val();
+                            var field2 = $("#emailField").val();
+                            var field3 = $("#question").val();
+                             
+                            if(field1 == ""){
+                                alert('Please Fill Your Name');
+                                document.getElementById("nameField").focus();
+                                return false;
+                            }
+                            if(field2 == ""){
+                                alert('Please Fill Your Email');
+                                document.getElementById("emailField").focus();
+                                return false;
+                            }
+                            if(field3 == ""){
+                                alert('Please Send Us Your Questions');
+                                document.getElementById("question").focus();
+                                return false;
+                            }
+            
+                            
+                
+                            $.ajax({
+                                url: "https://docs.google.com/forms/d/e/1FAIpQLSe4frSwiqO2RQDTjW9WV3XQI5d4FbKIjjaom2Wpvj9DUkwIig/formResponse?",
+                                data: {"entry.213465586": field1, "entry.937858181": field2, "entry.1009381555": field3},
+                                type: "POST",
+                                dataType: "xml",
+                                success: function(d)
+                                {
+                                },
+                                error: function(x, y, z)
+                                    {
+            
+                                        $('#success-msg').show();
+                                        $('#form').hide();
+                                        
+                                    }
+                            });
+                            return false;
                         }
-                    });
-                    return false;
-                }
             </script>
         </center>
     </div>
@@ -2738,26 +2730,27 @@
                 <h3 class="footerwhite1" id="hidden">Be the first to know about our new quizzes.</h3>
                 <br>
                 <div class="form">
-                    <form id="form" target="_self" onsubmit="return postToGoogle();" action="" autocomplete="off">
-                        <input id="emailField" name="entry.2109926796" type="email" placeholder="Enter your email"
+                    <form id="form" target="_self" onsubmit="return postToGooglee();" action="" autocomplete="off">
+                        <input id="emailFieldd" name="entry.2109926796" type="email" placeholder="Enter your email"
                             required><br>
                         <button id="send" type="submit" class="common_btn">SIGN UP</button>
                     </form>
                 </div>
-                <h3 id="success-msg">
-                    <br>
-                    <br class="hidden-lg hidden-md">
+                <br class="success-msgg" style="display:none;">
+                    <br class="hidden-lg hidden-md success-msgg" style="display:none;">
+                <h3 id="success-msgg" style="display:none;">
+                    
                     Thanks for subscribing!
                 </h3>
 
 
                 <script>
-                    function postToGoogle() {
-                        var field1 = $("#emailField").val();
+                    function postToGooglee() {
+                        var field1 = $("#emailFieldd").val();
 
                         if (field1 == "") {
                             alert('Please enter your email');
-                            document.getElementById("emailField").focus();
+                            document.getElementById("emailFieldd").focus();
                             return false;
                         }
 
@@ -2772,7 +2765,7 @@
                             },
                             error: function (x, y, z) {
 
-                                $('#success-msg').show();
+                                $('#success-msgg').show();
                                 $('#form, #hidden').hide();
 
                             }
